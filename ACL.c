@@ -18,6 +18,7 @@ int main()
 {
     char name[20], op[1];
     int i,f=0;
+    printf("IDENTITY AND ACCESS MANAGEMENT\n");
     printf("enter name: ");
     scanf("%s",name);
     
