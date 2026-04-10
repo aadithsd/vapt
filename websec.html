@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Security Checker</title>
+</head>
+
+<body>
+    <h2>Website Security Checker</h2>
+
+    <input type="text" id="url" placeholder="https://example.com" size="40">
+    <button onclick="checksite()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checksite() {
+            let url = document.getElementById("url").value;
+            let result = document.getElementById("result");
+
+            // Clear previous result
+            result.innerHTML = "";
+
+            // Check format
+            if (!url.startsWith("http")) {
+                result.innerHTML = "Invalid URL format";
+                return;
+            }
+
+            // Check HTTPS
+            if (url.startsWith("https://")) {
+                result.innerHTML = "HTTPS detected (secure connection)";
+            } else {
+                result.innerHTML = "Not using HTTPS (insecure)";
+            }
+
+            // Check suspicious patterns
+            if (/@|--|%00|\.exe|\.zip/i.test(url)) {
+                result.innerHTML += "<br>Suspicious URL pattern detected";
+            }
+        }
+    </script>
+
+</body>
+</html>
